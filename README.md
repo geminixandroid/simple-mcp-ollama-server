@@ -25,18 +25,20 @@ ollama serve
 pip install fastmcp ollama
 python mcp-server.py
 ```
+<img width="640" alt="server running" src="https://github.com/user-attachments/assets/32cd09bf-708e-45d7-9cd0-40502e8f6799" />
+
 
 ### 3. Connect from VS Code (Remote Client)
 
 Add to your VS Code settings (`settings.json`):
 
 ```json
-"mcp.servers": {
-    "mini-pc-ollama": {
-        "url": "http://mini-pc-ip-address:8000/mcp",
-        "type": "http"
-    }
-}
+"servers": {
+	"my-mcp-server-c6b180cc": {
+		"url": "http://mini-pc-ip-address:8000/mcp",
+		"type": "http"
+	}
+},
 ```
-
 > **Note:** Replace `mini-pc-ip-address` with your Mini PC's local IP address (e.g., `192.168.1.100`). Ensure both devices are on the same network.
+<img width="640" alt="vs code mcp running" src="https://github.com/user-attachments/assets/9f6a187f-fb22-4dab-9b31-d0c4e0a013e8" />
