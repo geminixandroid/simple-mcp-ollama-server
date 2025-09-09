@@ -13,7 +13,7 @@ models:
   - name: my-ollama
     provider: ollama
     model: qwen3:1.7b
-    apiBase: "http://192.168.1.146:11434"
+    apiBase: "http://mini-pc-ip-address:11434"
 
 # Context providers define what information the assistant can access
 context:
