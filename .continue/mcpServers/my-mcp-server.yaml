@@ -1,0 +1,9 @@
+name: My MCP server
+version: 0.0.1
+schema: v1
+mcpServers:
+  - name: My MCP server
+    type: streamable-http
+    url: http://192.168.1.146:8000/mcp
+    schema: 0.1.0
+    env: {}
