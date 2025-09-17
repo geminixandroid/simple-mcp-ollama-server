@@ -25,18 +25,43 @@ python mcp-server.py
 ```
 <img width="640" alt="server running" src="https://github.com/user-attachments/assets/32cd09bf-708e-45d7-9cd0-40502e8f6799" />
 
-### 3. Connect from VS Code (Remote Client)
-#### For Copilot
-Add to your VS Code settings (`settings.json`):
+### 3. Continue plugin config.yaml (Rider, VS Code)
+```yaml
+name: Local Agent
+version: 1.0.0
+schema: v1
+models:
+  - name: Qwen3 1.7B
+    provider: ollama
+    model: qwen3:1.7b
+    apiBase: "http://mini-pc-ip-address:11434"
+  - name: Qwen2.5-Coder 1.5B
+    provider: ollama
+    model: qwen2.5-coder:1.5b-base
+    apiBase: "http://mini-pc-ip-address:11434"
+    roles:
+      - autocomplete
 
-```json
-"servers": {
-	"my-mcp-server-c6b180cc": {
-		"url": "http://mini-pc-ip-address:8000/mcp",
-		"type": "http"
-	}
-},
+rules:
+  - name: Custom rule
+    rule: Some custom rules text
+
+mcpServers:
+  - name: My MCP server
+    type: streamable-http
+    url: http://mini-pc-ip-address:8000/mcp
+    schema: 0.1.0
+
+# Context providers define what information the assistant can access
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase
+  - provider: mcp
 ```
-#### For Continue
-Look to `.continue` folder
+
 > **Note:** Replace `mini-pc-ip-address` with your Mini PC's local IP address (e.g., `192.168.1.100`). Ensure both devices are on the same network.
